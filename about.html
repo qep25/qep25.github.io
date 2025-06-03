@@ -1,105 +1,82 @@
-<!DOCTYYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>E-Resume</title>
-    <link rel="stylesheet" href="style.css">
-	
-	<link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-	
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- Only the updated ABOUT section shown here -->
+<section class="about" id="about">
+  <div class="about-text">
+    <h3>I'm a Web Developer & AI Enthusiast</h3>
+    <h2>I Can Help You Build Smart Solutions</h2>
+    <p>Hello, my name is Danial Thaqif Bin Mohamed Fikri from Shah Alam, Selangor. I'm currently pursuing a Bachelor of Computer Science (Hons.) at UiTM Shah Alam and previously completed my Diploma in Computer Science at UiTM Terengganu. I specialize in data analysis, AI development, and full-stack web applications.</p>
+    <a href="index.html" class="btn">Hire Me</a>
+  </div>
 
-</head>
-<body>
-	<!---------header------------->
-	<header>
-		<a href="index.html" class="logo"><img src="img/logo.png"></a>
-		<div class="bx bx-menu" id="menu-icon"></div>
-		
-		<ul class="navlist">
-			<li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="project.html">Projects</a></li>
-			<li><a href="gallery.html">Gallery</a></li>
-            <li><a href="contact.html">Contact</a></li>
-		</ul>
-		<a href="CV/cv.pdf" class="top-btn" target="_blank">Download CV</a>
-	</header>
-	
-	<!--------About---->
-	<section class="about" id="about">
-	<div class="about-text">
-		<h3>I'm a Web & AI Developer</h3>
-		<h2>I Build Web Apps and Smart Systems</h2>
-		<p>Hello, I’m Danial Thaqif Bin Mohamed Fikri from Shah Alam, Selangor. I’m a final-year Bachelor of Computer Science (Hons.) student at UiTM Shah Alam with a strong background in web development, data analysis, and artificial intelligence. I love learning new tools, solving real-world problems, and building meaningful tech solutions.</p>
-		<a href="index.html" class="btn">Hire Me</a>
-	</div>
+  <div class="about-img">
+    <img src="img/4.jpg" alt="Danial's Profile">
+  </div>
 
-	<div class="about-img">
-		<img src="img/4.jpg">
-	</div>
+  <!-- UPDATED Education Table -->
+  <div class="about-table">
+    <h2>Education</h2>
+    <table>
+      <tr>
+        <th>Year</th>
+        <th>Level</th>
+        <th>Place</th>
+        <th>Achievement</th>
+      </tr>
+      <tr>
+        <td>2023–2025</td>
+        <td>Bachelor of Computer Science (Hons)</td>
+        <td>UiTM Shah Alam</td>
+        <td>Dean’s List (1 Sem) | CGPA: 3.39</td>
+      </tr>
+      <tr>
+        <td>2020–2023</td>
+        <td>Diploma in Computer Science</td>
+        <td>UiTM Terengganu</td>
+        <td>Dean’s List (4/5 Sems) | CGPA: 3.59</td>
+      </tr>
+      <tr>
+        <td>2015–2019</td>
+        <td>Secondary School</td>
+        <td>SMK USJ 13</td>
+        <td>SPM: 1A+, 2A, 1B+, 5B</td>
+      </tr>
+      <tr>
+        <td>2009–2014</td>
+        <td>Primary School</td>
+        <td>SK Dato' Onn Jaafar</td>
+        <td>UPSR: 3A, 1B, 1C</td>
+      </tr>
+    </table>
+  </div>
 
-	<div class="about-table">
-		<h2>Education</h2>
-		<table>
-		<tr>
-			<th>Year</th>
-			<th>Level</th>
-			<th>Institution</th>
-			<th>Achievement</th>
-		</tr>
-		<tr>
-			<td>2023 – 2025</td>
-			<td>Bachelor in Computer Science (Hons.)</td>
-			<td>UiTM Shah Alam</td>
-			<td>Current CGPA: 3.39<br>Dean’s List (1 Sem)</td>
-		</tr>
-		<tr>
-			<td>2020 – 2023</td>
-			<td>Diploma in Computer Science</td>
-			<td>UiTM Terengganu</td>
-			<td>CGPA: 3.59<br>Dean’s List (4 Sem)</td>
-		</tr>
-		</table>
-	</div>
+  <!-- NEW Internship Info -->
+  <div class="about-serv">
+    <h2>Internship Highlights</h2>
+    <h3>Aga Touch Sdn. Bhd. (2025)</h3>
+    <p>I implemented AI-powered tools such as Named Entity Recognition (NER) using spaCy and Hugging Face, developed web scrapers, and built a chatbot using Python and RestAPI. I also deployed a real-time project tracking system using Streamlit and Laravel.</p>
+  </div>
 
-	<div class="about-skill">
-		<h2>Skills</h2>
-		<div class="skills">
-		<div class="progress"><p>Python, Java, PHP, SQL <span>Advanced</span></p></div>
-		<div class="progress"><p>HTML, CSS, JavaScript, Laravel <span>Advanced</span></p></div>
-		<div class="progress"><p>TensorFlow, Keras, OpenCV <span>Intermediate</span></p></div>
-		<div class="progress"><p>MySQL, Oracle, Power BI <span>Proficient</span></p></div>
-		<div class="progress"><p>WordPress, Figma, Streamlit <span>Proficient</span></p></div>
-		<div class="progress"><p>Photoshop, Illustrator, Animate <span>Proficient</span></p></div>
-		<div class="progress"><p>Communication, Leadership <span>Strong</span></p></div>
-		</div>
-	</div>
+  <!-- UPDATED Skills Section -->
+  <div class="about-skill">
+    <h2>Technical Skills</h2>
+    <div class="skills">
+      <div class="progress"><p>C++ <span>70%</span></p><div class="bar"><span></span></div></div>
+      <div class="progress"><p>Java <span>85%</span></p><div class="bar"><span></span></div></div>
+      <div class="progress"><p>PHP <span>80%</span></p><div class="bar"><span></span></div></div>
+      <div class="progress"><p>MySQL <span>85%</span></p><div class="bar"><span></span></div></div>
+      <div class="progress"><p>Python <span>90%</span></p><div class="bar"><span></span></div></div>
+      <div class="progress"><p>Laravel & Streamlit <span>80%</span></p><div class="bar"><span></span></div></div>
+      <div class="progress"><p>AI Tools (NER, CNN, LLM APIs) <span>75%</span></p><div class="bar"><span></span></div></div>
+      <div class="progress"><p>Power BI & Azure <span>70%</span></p><div class="bar"><span></span></div></div>
+    </div>
+  </div>
 
-	<div class="about-serv-img">
-		<img src="img/volunteer.png">
-	</div>
-
-	<div class="about-serv">
-		<h2>Services</h2>
-		<h3>Volunteers</h3>
-		<p>I enjoy assisting people in need and changing lives through meaningful community efforts.</p>
-	</div>
-	</section>
-
-	
-	<!--------ends---->
-	<div class="ends">
-		<p>Made by Danial Thaqif © 2022</p>
-	</div>
-
-	<script src="https://unpkg.com/scrollreveal"></script>
-
-	<!--------Link to js---->
-	<script type="text/javascript" src="js/script.js"></script>
-	
-</body>
-</html>
+  <!-- UPDATED Services Section -->
+  <div class="about-serv-img">
+    <img src="img/volunteer.png" alt="Volunteer">
+  </div>
+  <div class="about-serv">
+    <h2>Soft Skills</h2>
+    <h3>Leadership & Communication</h3>
+    <p>Throughout my academic and volunteer journey, I have consistently held leadership roles and collaborated in diverse teams, including serving as Program Director for an international webinar and being promoted as a Commanding Officer in Komander Kesatria.</p>
+  </div>
+</section>
