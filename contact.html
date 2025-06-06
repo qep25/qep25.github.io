@@ -89,7 +89,7 @@
         Message: document.getElementById("message").value
       };
 
-      fetch("https://script.google.com/macros/s/AKfycbzRBJdfUpYN0BzQAnHqLT3eXgLNqiE7PJ6DF1WWi6VDnVaK4wf5RFWtLMw6zOBX7ZQc/exec", {
+      fetch("https://script.google.com/macros/s/AKfycbzGreeDCXJXtcctAmtOTxK6-h7qHrvuaHqL-crBRFY69iFlp7t4VERj5b0uz9ZoCDex/exec", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
@@ -103,6 +103,7 @@
         document.getElementById("contactForm").reset();
       })
       .catch(err => {
+        console.error(err);
         document.getElementById("formResponse").innerHTML =
           "<div class='alert alert-danger'>There was an error submitting your message.</div>";
       });
