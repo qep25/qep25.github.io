@@ -1,16 +1,19 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Gallery | Danial Thaqif</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Gallery | Danial Thaqif
+  </title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
   <style>
-    body {
+   body {
       font-family: 'Jost', sans-serif;
       background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
     }
     header {
       background-color: #000;
@@ -20,83 +23,323 @@
       width: 100%;
       height: auto;
       border-radius: 0.5rem;
+      object-fit: cover;
+      aspect-ratio: 4 / 3;
+      transition: transform 0.3s ease;
+      display: block;
     }
     .img-wrapper {
+      position: relative;
       padding: 0.5rem;
       background-color: white;
       border: 1px solid #dee2e6;
       border-radius: 0.5rem;
       box-shadow: 0 0 10px rgba(0,0,0,0.03);
+      cursor: pointer;
+      overflow: hidden;
+    }
+    .img-wrapper:hover .gallery-img {
+      transform: scale(1.05);
+    }
+    /* Tooltip container */
+    .tooltip-text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.7);
+      color: #fff;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.9rem;
+      border-bottom-left-radius: 0.5rem;
+      border-bottom-right-radius: 0.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      text-align: center;
+      user-select: none;
+    }
+    .img-wrapper:hover .tooltip-text {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    footer {
+      background-color: #f1f1f1;
+      font-weight: 500;
+      color: #333;
+    }
+    /* Modal styles */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1050;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .modal-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      background: #000;
+    }
+    .modal-content img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 0.5rem;
+      max-height: 90vh;
+      object-fit: contain;
+    }
+    .modal-close {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background: rgba(255,255,255,0.8);
+      border: none;
+      border-radius: 50%;
+      width: 2.5rem;
+      height: 2.5rem;
+      font-size: 1.5rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #000;
+      transition: background-color 0.2s ease;
+      user-select: none;
+    }
+    .modal-close:hover {
+      background: rgba(255,255,255,1);
     }
   </style>
-</head>
-<body>
-  <div id="navbar-placeholder"></div>
-
+ </head>
+ <body>
+  <div id="navbar-placeholder">
+  </div>
   <main class="container py-5">
-    <h2 class="mb-4">Gallery</h2>
-    <p class="mb-4">Snapshots of my academic journey, leadership roles, and field activities.</p>
-    <div class="row g-4">
-      <div class="col-12 col-sm-6 col-md-4">
-        <div class="img-wrapper">
-          <img src="img/6.jpg" class="gallery-img" alt="Primary School">
-        </div>
+   <h2 class="mb-4">
+    Gallery
+   </h2>
+   <p class="mb-4">
+    Snapshots of my academic journey, leadership roles, and field activities.
+   </p>
+   <div class="row g-4">
+    <div class="col-12 col-sm-6 col-md-4">
+     <div class="img-wrapper" role="button" tabindex="0">
+      <img alt="Graduated from Primary School" class="gallery-img" height="450" src="img/sk.jpg" width="600"/>
+      <div class="tooltip-text">
+       Graduated from Primary School
       </div>
-      <div class="col-12 col-sm-6 col-md-4">
-        <div class="img-wrapper">
-          <img src="img/3.jpg" class="gallery-img" alt="Secondary School">
-        </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4">
-        <div class="img-wrapper">
-          <img src="img/7.jpg" class="gallery-img" alt="Promotion Ceremony">
-        </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4">
-        <div class="img-wrapper">
-          <img src="img/12.jpg" class="gallery-img" alt="Full Uniform">
-        </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4">
-        <div class="img-wrapper">
-          <img src="img/9.jpg" class="gallery-img" alt="Camp Gear">
-        </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4">
-        <div class="img-wrapper">
-          <img src="img/10.jpg" class="gallery-img" alt="Survival Camp">
-        </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4">
-        <div class="img-wrapper">
-          <img src="img/11.jpg" class="gallery-img" alt="Physical Training">
-        </div>
-      </div>
+     </div>
     </div>
+    <div class="col-12 col-sm-6 col-md-4">
+     <div class="img-wrapper" role="button" tabindex="0">
+      <img alt="Graduated from Secondary School" class="gallery-img" height="450" src="img/smk.jpg" width="600"/>
+      <div class="tooltip-text">
+       Graduated from Secondary School and and Honouring the Best Student of Computer Science Student
+      </div>
+     </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4">
+     <div  class="img-wrapper" role="button" tabindex="0">
+      <img alt="Join Komander Kesatria (UiTM Uniform)" class="gallery-img" height="450" src="img/x12.jpg" width="600"/>
+      <div class="tooltip-text">
+       Join Komander Kesatria (UiTM Uniform)
+      </div>
+     </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4">
+     <div class="img-wrapper" role="button" tabindex="0">
+      <img alt="Participant in Survival Course" class="gallery-img" height="450" src="img/hutan.jpg" width="600"/>
+      <div class="tooltip-text">
+       Participant in Survival Course
+      </div>
+     </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4">
+     <div class="img-wrapper" role="button" tabindex="0">
+      <img alt="UiTM Kuala Terengganu Komander Kesatria" class="gallery-img" height="450" src="img/komander.jpg" width="600"/>
+      <div class="tooltip-text">
+       UiTM Kuala Terengganu Komander Kesatria
+      </div>
+     </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4">
+     <div  class="img-wrapper" role="button" tabindex="0">
+      <img alt="Promoted to be Head of UiTM Terengganu Komander Kesatria(2nd-In-Command)" class="gallery-img" height="450" src="img/pangkat.jpg" width="600"/>
+      <div class="tooltip-text">
+       Promoted to be Head of UiTM Terengganu Komander Kesatria(2nd-In-Command)
+      </div>
+     </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4">
+     <div  class="img-wrapper" role="button" tabindex="0">
+      <img alt="Graduated from UiTM Kuala Terengganu (Diploma Graduation)" class="gallery-img" height="450" src="img/konvo.jpg" width="600"/>
+      <div class="tooltip-text">
+       Graduated from UiTM Kuala Terengganu (Diploma Graduation)
+      </div>
+     </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4">
+     <div  class="img-wrapper" role="button" tabindex="0">
+      <img alt="Commissioning ceremony for Komander Kesatria" class="gallery-img" height="450" src="img/tauliah.jpg" width="600"/>
+      <div class="tooltip-text">
+       Commissioning Ceremony of Komander Kesatria and Honouring the Best Commander – Terengganu Branch
+      </div>
+     </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4">
+     <div  class="img-wrapper" role="button" tabindex="0">
+      <img alt="Participation in 30KM Kayak Expedition – Pulau Pangkor" class="gallery-img" height="450" src="img/pangkor.jpg" width="600"/>
+      <div class="tooltip-text">
+       Participation in 30KM Kayak Expedition – Pulau Pangkor
+      </div>
+     </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4">
+     <div  class="img-wrapper" role="button" tabindex="0">
+      <img alt="Achieved Dean’s List – Semester 3 (Bachelor’s Degree)" class="gallery-img" height="450" src="img/dekan.jpg" width="600"/>
+      <div class="tooltip-text">
+       Achieved Dean’s List – Semester 3 (Bachelor’s Degree)
+      </div>
+     </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4">
+     <div  class="img-wrapper" role="button" tabindex="0">
+      <img alt="Become program director for the International SULAM program" class="gallery-img" height="450" src="img/sulam.JPG" width="600"/>
+      <div class="tooltip-text">
+       Become program director for the International SULAM program
+      </div>
+     </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4">
+     <div  class="img-wrapper" role="button" tabindex="0">
+      <img alt="Managed the SULAM Program Committee" class="gallery-img" height="450" src="img/sulam2.JPG" width="600"/>
+      <div class="tooltip-text">
+       Managed the SULAM Program Committee
+      </div>
+     </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4">
+     <div  class="img-wrapper" role="button" tabindex="0">
+      <img alt="Final Year Project (FYP) Booth Exhibition" class="gallery-img" height="450" src="img/fyp3.jpg" width="600"/>
+      <div class="tooltip-text">
+       Final Year Project (FYP) Booth Exhibition
+      </div>
+     </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4">
+     <div  class="img-wrapper" role="button" tabindex="0">
+      <img alt="Post-FYP Booth Exhibition – Holding My Project Poster" class="gallery-img" height="450" src="img/fyp2.jpg" width="600"/>
+      <div class="tooltip-text">
+       Post-FYP Booth Exhibition – Holding My Project Poster
+      </div>
+     </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4">
+     <div  class="img-wrapper" role="button" tabindex="0">
+      <img alt="My Classmates from Semester 5 to 7 – After FYP Exhibition" class="gallery-img" height="450" src="img/fyp.jpg" width="600"/>
+      <div class="tooltip-text">
+       My Classmates from Semester 5 to 7 – After FYP Exhibition
+      </div>
+     </div>
+    </div>
+   </div>
   </main>
-
   <footer class="text-center py-4 bg-light">
-    <p class="mb-0">Made by Danial Thaqif © 2025</p>
+   <p class="mb-0">
+    Made by Danial Thaqif © 2025
+   </p>
   </footer>
+  <!-- Modal -->
+  <div aria-labelledby="modal-title" aria-modal="true" class="modal-overlay" hidden="" id="modal" role="dialog" tabindex="-1">
+   <div class="modal-content">
+    <button aria-label="Close modal" class="modal-close">
+     ×
+    </button>
+    <img alt="" id="modal-img" src=""/>
+   </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script>
+   // Load navbar
+    fetch('navbar.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('navbar-placeholder').innerHTML = data;
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        // Highlight current nav link
+        const path = window.location.pathname.split("/").pop();
+        const links = document.querySelectorAll('.navbar-nav .nav-link');
+        links.forEach(link => {
+          if (link.getAttribute('href') === path) {
+            link.classList.add('active');
+          }
+        });
+      });
 
-<script>
-  fetch('navbar.html')
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById('navbar-placeholder').innerHTML = data;
+    // Modal logic
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalCloseBtn = modal.querySelector('.modal-close');
 
-      // Highlight current nav link
-      const path = window.location.pathname.split("/").pop();
-      const links = document.querySelectorAll('.navbar-nav .nav-link');
-      links.forEach(link => {
-        if (link.getAttribute('href') === path) {
-          link.classList.add('active');
+    // Open modal with clicked image
+    document.querySelectorAll('.img-wrapper').forEach(wrapper => {
+      wrapper.addEventListener('click', () => {
+        const img = wrapper.querySelector('img');
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+        modal.removeAttribute('hidden');
+        modal.classList.add('active');
+        modal.focus();
+      });
+      // Also open modal on Enter or Space key for accessibility
+      wrapper.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          wrapper.click();
         }
       });
     });
-  </script>
 
-</body>
+    // Close modal function
+    function closeModal() {
+      modal.classList.remove('active');
+      modal.setAttribute('hidden', '');
+      modalImg.src = '';
+      modalImg.alt = '';
+    }
+
+    // Close modal on close button click
+    modalCloseBtn.addEventListener('click', closeModal);
+
+    // Close modal on overlay click (outside modal content)
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
+        closeModal();
+      }
+    });
+  </script>
+ </body>
 </html>
