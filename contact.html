@@ -23,21 +23,24 @@
   <main class="container py-5">
     <div class="contact-section">
       <h2 class="mb-4">Contact Me</h2>
-      <form action="http://localhost:5678/form/9a8b6687-5d61-43ec-bc94-b31772f9f93d" method="POST">
+
+      <form id="contactForm">
         <div class="mb-3">
           <label class="form-label">Your Name</label>
-          <input type="text" class="form-control" name="Name" required>
+          <input type="text" class="form-control" id="name" required>
         </div>
         <div class="mb-3">
           <label class="form-label">Email address</label>
-          <input type="email" class="form-control" name="Email" required>
+          <input type="email" class="form-control" id="email" required>
         </div>
         <div class="mb-3">
           <label class="form-label">Message</label>
-          <textarea class="form-control" name="Message" rows="5" required></textarea>
+          <textarea class="form-control" id="message" rows="5" required></textarea>
         </div>
         <button type="submit" class="btn btn-dark">Send Message</button>
       </form>
+
+      <div id="formResponse" class="mt-3"></div>
 
       <hr class="my-5">
 
@@ -59,6 +62,7 @@
     <p class="mb-0">Made by Danial Thaqif © 2025</p>
   </footer>
 
+  <!-- Bootstrap & Navbar loader -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     fetch('navbar.html')
@@ -72,6 +76,37 @@
           }
         });
       });
+  </script>
+
+  <!-- Form submission to Google Apps Script -->
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const data = {
+        Name: document.getElementById("name").value,
+        Email: document.getElementById("email").value,
+        Message: document.getElementById("message").value
+      };
+
+      fetch("https://script.google.com/macros/s/AKfycbzRBJdfUpYN0BzQAnHqLT3eXgLNqiE7PJ6DF1WWi6VDnVaK4wf5RFWtLMw6zOBX7ZQc/exec", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+      .then(res => res.json())
+      .then(response => {
+        document.getElementById("formResponse").innerHTML =
+          "<div class='alert alert-success'>Message submitted successfully!</div>";
+        document.getElementById("contactForm").reset();
+      })
+      .catch(err => {
+        document.getElementById("formResponse").innerHTML =
+          "<div class='alert alert-danger'>There was an error submitting your message.</div>";
+      });
+    });
   </script>
 </body>
 </html>
